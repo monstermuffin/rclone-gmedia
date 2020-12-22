@@ -1,0 +1,31 @@
+[Unit]
+Description=Gmedia RClone Mount Service
+After=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount \
+  --config=/home/<youruser>/.config/rclone/rclone.conf \
+  --log-level=INFO \
+  --log-file=/opt/rclone/logs/rclone-mount.log \
+  --user-agent=<useragent> \
+  --umask=002 \
+  --gid=1002 \
+  --uid=1000 \
+  --allow-other \
+  --timeout=1h \
+  --poll-interval=15s \
+  --dir-cache-time=1000h \
+  --cache-dir=<cache-dir> \
+  --vfs-cache-mode=full \
+  --vfs-cache-max-size=150G \
+  --vfs-cache-max-age=5h \
+  gdrive-media-crypt: 
+ExecStop=/bin/fusermount -uz <cloud-mountpoint>
+Restart=on-abort
+RestartSec=5
+StartLimitInterval=60s
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target
