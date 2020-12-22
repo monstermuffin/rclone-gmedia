@@ -20,7 +20,7 @@ ExecStart=/usr/bin/rclone mount \
   --vfs-cache-mode=full \
   --vfs-cache-max-size=<cache-size> \
   --vfs-cache-max-age=<cache-time> \
-  gdrive-media-crypt: 
+  gdrive-media-crypt: <cloud-mountpoint>
 ExecStop=/bin/fusermount -uz <cloud-mountpoint>
 Restart=on-abort
 RestartSec=5
