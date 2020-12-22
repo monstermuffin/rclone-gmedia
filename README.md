@@ -1,2 +1,2 @@
 # rclone-gmedia
-Configuration files for 
+Configuration files for blog post: 
