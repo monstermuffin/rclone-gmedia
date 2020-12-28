@@ -58,3 +58,31 @@ services:
       - ${APPDATA}ombi:/config
     ports:
       - 3579:3579
+      
+  jackett:
+    image: linuxserver/jackett
+    container_name: jackett
+    restart: unless-stopped
+    environment:
+      - PUID=${USVC}
+      - PGID=${GSVC}
+      - TZ=${TZLON}
+      - AUTO_UPDATE=true
+    volumes:
+      - ${APPDATA}jackett:/config
+    ports:
+      - 9117:9117
+      
+  tautulli:
+    image: linuxserver/tautulli
+    container_name: tautulli
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZLON}
+    volumes:
+      - ${APPDATA}tautulli:/config
+    ports:
+      - 8181:8181
+
