@@ -8,7 +8,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}      
-      - TZ=${TZLON}
+      - TZ=${TZ}
     volumes:
       - ${APPDATA}sonarr:/config
       - ${GMEDIA}
@@ -23,7 +23,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=${TZLON}
+      - TZ=${TZ}
     volumes:
       - ${APPDATA}radarr:/config
       - ${GMEDIA}
@@ -38,11 +38,10 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=${TZLON}
+      - TZ=${TZ}
     volumes:
       - ${APPDATA}sabnzdb:/config
       - ${DOWNLOAD}
-      - ${DOWNLOAD_LOC}    
     ports:
       - 8080:8080
       
@@ -53,7 +52,7 @@ services:
     environment:
       - PUID=${USVC}
       - PGID=${GSVC}
-      - TZ=${TZLON}
+      - TZ=${TZ}
     volumes:
       - ${APPDATA}ombi:/config
     ports:
@@ -66,7 +65,7 @@ services:
     environment:
       - PUID=${USVC}
       - PGID=${GSVC}
-      - TZ=${TZLON}
+      - TZ=${TZ}
       - AUTO_UPDATE=true
     volumes:
       - ${APPDATA}jackett:/config
@@ -80,9 +79,23 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=${TZLON}
+      - TZ=${TZ}
     volumes:
       - ${APPDATA}tautulli:/config
     ports:
       - 8181:8181
+      
+  plex:
+    image: ghcr.io/linuxserver/plex
+    container_name: plex
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - PUID=${USVC}
+      - PGID=${GSVC}
+      - PLEX_CLAIM=${PLEXTOKEN}
+    volumes:
+      - ${APPDATA}plex:/config
+      - ${GMEDIA-TV}:/tv
+      - ${GMEDIA-MOVIE}:/movies
 
