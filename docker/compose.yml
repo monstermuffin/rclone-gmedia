@@ -125,6 +125,7 @@ services:
         
   portainer:
     image: portainer/portainer
+    container_name: portainer
     command: -H unix:///var/run/docker.sock
     restart: always
     ports:
