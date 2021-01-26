@@ -113,11 +113,9 @@ services:
     environment:
       - PUID=${USVC}
       - PGID=${GSVC}
-      - PLEX_CLAIM=${PLEXTOKEN}
     volumes:
       - ${APPDATA}plex:/config
-      - ${GMEDIA-TV}
-      - ${GMEDIA-MOVIE}
+      - ${GMEDIA}
 
   watchtower:
       image: containrrr/watchtower
