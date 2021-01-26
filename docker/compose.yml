@@ -119,7 +119,7 @@ services:
       - ${GMEDIA-TV}
       - ${GMEDIA-MOVIE}
 
-   watchtower:
+  watchtower:
       image: containrrr/watchtower
       container_name: watchtower
       volumes:
