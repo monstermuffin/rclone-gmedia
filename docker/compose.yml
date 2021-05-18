@@ -2,7 +2,7 @@ version: "3"
 services:
   
   sonarr:
-    image: ghcr.io/linuxserver/sonarr:preview
+    image: ghcr.io/linuxserver/sonarr:latest
     container_name: sonarr
     restart: unless-stopped
     environment:
