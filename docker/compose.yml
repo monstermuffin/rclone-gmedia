@@ -111,8 +111,8 @@ services:
     restart: unless-stopped
     network_mode: host
     environment:
-      - PUID=${USVC}
-      - PGID=${GSVC}
+      - PUID=${PUID}
+      - PGID=${PGID}
     volumes:
       - ${APPDATA}plex:/config
       - ${GMEDIA}
