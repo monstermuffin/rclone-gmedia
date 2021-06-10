@@ -11,7 +11,7 @@ services:
       - TZ=${TZ}
     volumes:
       - ${APPDATA}sonarr:/config
-      - ${GMEDIA-TV}
+      - ${GMEDIA_TV}
       - ${DOWNLOAD}
     ports:
       - 8989:8989
@@ -26,7 +26,7 @@ services:
       - TZ=${TZ}
     volumes:
       - ${APPDATA}radarr:/config
-      - ${GMEDIA-MOVIE}
+      - ${GMEDIA_MOVIE}
       - ${DOWNLOAD}
     ports:
       - 7878:7878
