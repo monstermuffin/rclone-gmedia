@@ -1,0 +1,20 @@
+<rclone-log-dir>/rclone-mount.log {
+
+  # Number of old log files to retain.
+  rotate 10
+
+  # DO NOT CHANGE. See manpage for info and https://github.com/rclone/rclone/issues/2259.
+  copytruncate
+
+  # Rotate log files once a day.
+  daily
+
+  # Disable gzip compression - Optional. See manpage for info.
+  nocompress
+
+  # No error if missing file.
+  missingok
+
+  # No rotate if file empty.
+  notifempty
+}
