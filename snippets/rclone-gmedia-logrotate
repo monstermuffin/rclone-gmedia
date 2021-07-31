@@ -1,4 +1,6 @@
-<rclone-log-dir>/rclone-mount.log {
+<rclone-log-dir>/upload.log
+<rclone-log-dir>/rclone-mount.log
+{
 
   # Number of old log files to retain.
   rotate 10
