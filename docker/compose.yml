@@ -65,18 +65,18 @@ services:
       - 51413:51413/udp
 
       
-  ombi:
-    image: ghcr.io/linuxserver/ombi
-    container_name: ombi
+  overseerr:
+    image: sctx/overseerr:latest
+    container_name: overseerr
     restart: unless-stopped
     environment:
       - PUID=${USVC}
       - PGID=${GSVC}
       - TZ=${TZ}
     volumes:
-      - ${APPDATA}ombi:/config
+      - ${APPDATA}overseerr:/app/config
     ports:
-      - 3579:3579
+      - 5055:5055
       
   jackett:
     image: linuxserver/jackett
