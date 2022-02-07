@@ -1,1 +1,4 @@
 0 */6 * * * /usr/bin/rclone move <local-mountpoint> gdrive-media-crypt: --config /home/<youruser>/.config/rclone/rclone.conf --log-file <rclone-log-dir>/upload.log --log-level INFO --delete-empty-src-dirs --fast-list --min-age <min-age>
+
+# Optional: run script instead of directly calling rclone move
+# 0 */6 * * * /path/to/gmedia-upload.sh
